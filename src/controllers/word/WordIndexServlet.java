@@ -1,4 +1,4 @@
-package word;
+package controllers.word;
 
 import java.io.IOException;
 

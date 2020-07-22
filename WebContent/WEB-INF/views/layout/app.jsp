@@ -12,8 +12,21 @@
         <div id="wrapper">
             <div id="header">
                 <div id="header_menu">
-                    <h1>Eitan Memo</h1>
+                    <a href="">Eitan Memo</a>
                 </div>
+                <c:choose>
+                    <c:when test="${sessionScope.login_user != null}">
+                        <div id="employee_name">
+                            <c:out value="${sessionScope.login_user.name}"/>&nbsp;さん&nbsp;&nbsp;
+                            <a href="<c:url value='/logout'/>">ログアウト</a>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div id="employee_name">
+                            <a href="<c:url value='/login'/>">ログイン</a>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
             <div id="content">
                 ${param.content}
