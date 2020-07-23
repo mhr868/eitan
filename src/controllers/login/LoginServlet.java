@@ -62,8 +62,6 @@ public class LoginServlet extends HttpServlet {
 						plain_pass,
 						(String)this.getServletContext().getAttribute("salt")
 						);
-
-
 				try {
 					u = em.createNamedQuery("LoginCheck", User.class)
 							.setParameter("user_id", user_id)

@@ -2,9 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
-        <c:when test="${hasError}">
-
-        </c:when>
+        <c:if test="${hasError}">
+            <div id="flush_error">
+                            入力内容に誤りがあります。
+            </div>
+        </c:if>
         <h2>ログイン</h2>
         <form method="post" action="<c:url value='/login'/>">
             <label for="user_id">ユーザーID</label><br />
@@ -18,5 +20,7 @@
             <input type="hidden" name="_token" value="${_token}">
             <button type="submit">ログイン</button>
         </form>
+        <br />
+        <a href="<c:url value='/user/new'/>">新規ユーザー登録</a>
     </c:param>
 </c:import>
