@@ -2,6 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
+        <c:if test="${flush != null}">
+            <div id="flush_success">
+                         ユーザー情報を登録しました
+            </div>
+        </c:if>
         <c:if test="${hasError}">
             <div id="flush_error">
                             入力内容に誤りがあります。
