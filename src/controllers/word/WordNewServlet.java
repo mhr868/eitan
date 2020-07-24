@@ -1,11 +1,15 @@
 package controllers.word;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import models.Word;
 
 /**
  * Servlet implementation class WordNewServlet
@@ -13,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/word/new")
 public class WordNewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,7 +31,13 @@ public class WordNewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		Word w = new Word();
+
+		request.setAttribute("_token", request.getSession().getId());
+		request.setAttribute("word", w);
+
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/word/new.jsp");
+		rd.forward(request, response);
 	}
 
 }
