@@ -10,11 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "words")
 @NamedQueries({
-
+	@NamedQuery(
+			name = "getAllWords",
+			query = "Select w From Word As w ORDER BY w.primary_id DESC")
     })
 @Entity
 public class Word {

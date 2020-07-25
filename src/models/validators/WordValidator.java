@@ -14,7 +14,7 @@ public class WordValidator {
 		if(!word_error.equals("")) {
 			errors.add(word_error);
 		}
-		String mean_error = _validateWord(w.getMean());
+		String mean_error = _validateMean(w.getMean());
 		if(!mean_error.equals("")) {
 			errors.add(mean_error);
 		}
