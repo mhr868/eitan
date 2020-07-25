@@ -12,7 +12,12 @@
         <div id="wrapper">
             <div id="header">
                 <div id="header_menu">
-                    <a href="<c:url value='/word/index'/>">Eitan Memo</a>
+                    <a href="<c:url value='/'/>">EitanTop</a>&nbsp;&nbsp;&nbsp;
+                    <c:if test="${sessionScope.login_user != null}">
+
+                        <a href="<c:url value='/word/index'/>">mypage</a>
+
+                     </c:if>
                 </div>
                 <c:choose>
                     <c:when test="${sessionScope.login_user != null}">
