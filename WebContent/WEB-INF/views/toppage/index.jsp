@@ -2,8 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
+        <c:if test="${flush != null}">
+            <div id="flush_success">
+                <c:out value="${flush}"/>
+            </div>
+        </c:if>
         <h2>Hello Eitan!</h2>
-        <p>Eitanは英単語を投稿できるWebサービスです。</p>
+        <p>Eitanは英単語を投稿できるWebアプリです。</p>
         <p>気になった英単語を登録していくことで、パーソナルな単語帳を作ることが出来ます。</p>
         <br/>
         <img src="f0020118_3121126.jpg">

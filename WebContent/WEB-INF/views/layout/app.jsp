@@ -12,10 +12,11 @@
         <div id="wrapper">
             <div id="header">
                 <div id="header_menu">
-                    <a href="<c:url value='/'/>">EitanTop</a>&nbsp;&nbsp;&nbsp;
+                    <a href="<c:url value='/'/>">Top</a>&nbsp;&nbsp;&nbsp;
+                    <a href="<c:url value='/word/index'/>">words</a>&nbsp;&nbsp;&nbsp;
                     <c:if test="${sessionScope.login_user != null}">
 
-                        <a href="<c:url value='/word/index'/>">mypage</a>
+                        <a href="<c:url value='/user/word/index'/>">mypage</a>&nbsp;&nbsp;&nbsp;
 
                      </c:if>
                 </div>
@@ -35,6 +36,10 @@
             </div>
             <div id="content">
                 ${param.content}
+            </div>
+            <div id="footer">
+                <br/>
+                <br/>
             </div>
 
         </div>

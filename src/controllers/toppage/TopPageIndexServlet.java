@@ -37,10 +37,16 @@ public class TopPageIndexServlet extends HttpServlet {
 		EntityManager em = DBUtil.createEntityManager();
 
 		List<Word> words = em.createNamedQuery("getAllWords", Word.class)
+				.setFirstResult(0)
+				.setMaxResults(5)
 				.getResultList();
 
 		em.close();
 
+		if(request.getSession().getAttribute("flush") != null) {
+			request.setAttribute("flush", request.getSession().getAttribute("flush"));
+			request.getSession().removeAttribute("flush");
+		}
 		request.setAttribute("words", words);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/toppage/index.jsp");
         rd.forward(request, response);
