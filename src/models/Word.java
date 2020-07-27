@@ -17,7 +17,12 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(
 			name = "getAllWords",
-			query = "Select w From Word As w ORDER BY w.primary_id DESC")
+			query = "Select w From Word As w ORDER BY w.primary_id DESC"
+			),
+	@NamedQuery(
+			name = "getWordsCount",
+			query = "Select Count(w) From Word As w"
+			),
     })
 @Entity
 public class Word {
