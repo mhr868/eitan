@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,6 +23,14 @@ import javax.persistence.Table;
 	@NamedQuery(
 			name = "getWordsCount",
 			query = "Select Count(w) From Word As w"
+			),
+	@NamedQuery(
+			name = "getUserWords",
+			query = "Select w From Word As w Where w.posting_user = :posting_user ORDER BY w.primary_id DESC"
+			),
+	@NamedQuery(
+			name = "getUserWordsCount",
+			query = "Select Count(w) From Word As w Where w.posting_user = :posting_user"
 			),
     })
 @Entity
@@ -41,6 +50,7 @@ public class Word {
 	@Column(name = "situation")
 	private String situation;
 
+	@Lob
 	@Column(name = "note")
 	private String note;
 

@@ -7,7 +7,7 @@
                 <c:out value="${flush}"/>
             </div>
         </c:if>
-        <p>全ての英単語</p>
+        <p><c:out value="${sessionScope.login_user.name}"/> さんが登録した英単語</p>
         <table>
             <tbody>
                 <tr>

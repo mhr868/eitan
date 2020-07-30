@@ -28,7 +28,7 @@
                         <td class="word"><c:out value="${word.word}"/></td>
                         <td class="mean"><c:out value="${word.mean}"/></td>
                         <td class="situation"><c:out value="${word.situation}"/></td>
-                        <td class="action"><a>詳細を見る</a></td>
+                        <td class="action"><a href="<c:url value='/word/show?id=${word.primary_id}'/>">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
