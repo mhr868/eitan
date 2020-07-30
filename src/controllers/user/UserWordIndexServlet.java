@@ -58,6 +58,11 @@ public class UserWordIndexServlet extends HttpServlet {
 
 		em.close();
 
+		if(request.getSession().getAttribute("flush") != null) {
+			request.setAttribute("flush", request.getSession().getAttribute("flush"));
+			request.getSession().removeAttribute("flush");
+		}
+
 		request.setAttribute("page", page);
 		request.setAttribute("words", words);
 		request.setAttribute("words_count", words_count);
