@@ -7,7 +7,11 @@
                 <c:out value="${flush}"/>
             </div>
         </c:if>
+        <c:if test="${sessionScope.login_user != null}">
+            <a href="<c:url value='/word/new'/>">新しい単語を登録する</a>
+        </c:if>
         <p><c:out value="${sessionScope.login_user.name}"/> さんが登録した英単語</p>
+
         <table>
             <tbody>
                 <tr>
@@ -39,8 +43,6 @@
                </c:choose>
            </c:forEach>
         </div>
-        <c:if test="${sessionScope.login_user != null}">
-            <a href="<c:url value='/word/new'/>">新しい単語を登録する</a>
-        </c:if>
+
     </c:param>
 </c:import>
